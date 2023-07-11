@@ -1,0 +1,22 @@
+@import "variables";
+
+@keyframes flashing-border {
+	0%, 
+	100% {
+		border-color: $background_color;
+	}
+	50% {
+		border-color: transparent;
+	}
+}
+
+@keyframes task-show {
+	0% {
+		opacity: 0;
+		transform: rotateX(90deg);
+	}
+	100% {
+		opacity: 1;
+		transform: rotateX(0deg);
+	}
+}
