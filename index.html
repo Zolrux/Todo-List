@@ -21,19 +21,19 @@
 					<div class="todo__wrapper">
 						<div class="todo__top todo-top">
 							<div class="todo-top__create">
-								<button type="button" class="todo-top__btn">
+								<button data-modal-create-btn type="button" class="todo-top__btn">
 									<img src="img/icons/plus.svg" alt="plus icon">
 								</button>
 								<span class="todo-top__text">Create a new todo</span>
-								<div class="modal">
-									<div data-modal-create class="modal__overlay">
+								<div data-modal-create class="modal">
+									<div data-modal-overlay class="modal__overlay">
 										<div class="modal__window">
 											<p class="modal__text">Write the task description</p>
 											<div class="modal__interactive">
 												<textarea class="modal__textarea"></textarea>
 												<button type="button" class="modal__btn">Add</button>
 											</div>
-											<button type="button" class="modal__close">
+											<button data-modal-create-close-btn type="button" class="modal__close">
 												<img src="/img/icons/close.svg" alt="close icon">
 											</button>
 										</div>
