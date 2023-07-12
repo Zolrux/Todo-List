@@ -177,6 +177,68 @@ button {
           flex: 1 1 100%;
 }
 
+.todo-bottom__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+.todo-bottom__btn {
+  background-color: transparent;
+  font-size: 32px;
+  color: #CCDCF5;
+}
+.todo-bottom__btn._active {
+  color: #5291F0;
+}
+
+@-webkit-keyframes flashing-border {
+  0%, 100% {
+    border-color: #030929;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes flashing-border {
+  0%, 100% {
+    border-color: #030929;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes task-show {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+@keyframes task-show {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
 .todo-task {
   position: relative;
   display: -webkit-box;
@@ -314,7 +376,7 @@ button {
   color: #D9D9D9;
 }
 
-.todo-bottom__content {
+.modal__overlay {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -324,55 +386,101 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 15px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 50px 0;
 }
-.todo-bottom__btn {
-  background-color: transparent;
+.modal__window {
+  position: relative;
+  max-width: 500px;
+  padding: 50px;
+  background-color: #2B28C6;
+  border-radius: 20px;
+}
+.modal__text {
+  display: block;
+  position: relative;
   font-size: 32px;
-  color: #CCDCF5;
+  color: #FFFFFF;
+  padding: 0px 0px 20px 0px;
 }
-.todo-bottom__btn._active {
-  color: #5291F0;
+.modal__text::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: block;
+  width: 70%;
+  height: 5px;
+  background-color: #5291F0;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  border-radius: 10px;
 }
-
-@-webkit-keyframes flashing-border {
-  0%, 100% {
-    border-color: #030929;
-  }
-  50% {
-    border-color: transparent;
-  }
+.modal__interactive {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  max-width: 100%;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 50px 0px 0px 0px;
 }
-
-@keyframes flashing-border {
-  0%, 100% {
-    border-color: #030929;
-  }
-  50% {
-    border-color: transparent;
-  }
+.modal__textarea {
+  min-height: 150px;
+  padding: 10px 25px;
+  font-size: 21px;
+  resize: none;
 }
-@-webkit-keyframes task-show {
-  0% {
-    opacity: 0;
-    -webkit-transform: rotateX(90deg);
-            transform: rotateX(90deg);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
+.modal__btn {
+  max-width: 200px;
+  width: 100%;
+  background-color: #5291F0;
+  font-size: 38px;
+  letter-spacing: 5px;
+  min-height: 50px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border-radius: 20px;
+  padding: 15px 30px;
+  margin: 15px auto 0px;
+  -webkit-box-shadow: 0px 5px 0px #030929;
+          box-shadow: 0px 5px 0px #030929;
 }
-@keyframes task-show {
-  0% {
-    opacity: 0;
-    -webkit-transform: rotateX(90deg);
-            transform: rotateX(90deg);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
+.modal__btn:active {
+  -webkit-transform: translate(0px, 5px);
+          transform: translate(0px, 5px);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.modal__close {
+  width: 50px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #2B28C6;
+  border-radius: 50%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+.modal__close img {
+  width: 20px;
 }
