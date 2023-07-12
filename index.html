@@ -25,6 +25,20 @@
 									<img src="img/icons/plus.svg" alt="plus icon">
 								</button>
 								<span class="todo-top__text">Create a new todo</span>
+								<div hidden class="modal">
+									<div data-modal-create class="modal__overlay">
+										<div class="modal__window">
+											<p class="modal__text">Write the task description</p>
+											<div class="modal__interactive">
+												<textarea class="modal__textarea"></textarea>
+												<button type="button" class="modal__btn">Add</button>
+											</div>
+											<button type="button" class="modal__close">
+												<img src="/img/icons/close.svg" alt="close icon">
+											</button>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="todo__center todo-center">
@@ -47,7 +61,6 @@
 									</div>
 									<time class="todo-task__date">Jul 11, Tuesday</time>
 								</div>
-
 							</div>
 						</div>
 						<div class="todo__bottom todo-bottom">
@@ -62,7 +75,7 @@
 			</div>
 		</main>
 	</div>
-	<script src="js/script.js"></script>
+	<script type="module" src="js/script.js"></script>
 </body>
 
 </html>
