@@ -24,10 +24,11 @@
     color: $white;
     font-size: 30px;
     padding: 0px 20px 0px 0px;
-    flex: 1 1 auto;
+    flex: 1 1 85%;
   }
   &__btns {
     position: relative;
+	 align-self: flex-start;
   }
   &__btn-config {
     position: relative;
@@ -48,6 +49,9 @@
     &:hover {
       box-shadow: inset 1px 1px 10px rgba($background_color, 0.5);
     }
+	 .todo-task._active & {
+		transform: rotate(90deg);
+	 }
   }
   &__btn-complete {
     position: absolute;
@@ -108,7 +112,7 @@
   }
   &__date {
     flex: 1 1 100%;
-    margin: 15px 0px 0px 0px;
+    margin: 25px 0px 0px 0px;
     color: $grey;
   }
 }

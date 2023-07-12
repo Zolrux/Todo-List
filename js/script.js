@@ -1,7 +1,7 @@
 'use strict';
 
 import TypedText from './features/typed.js';
-import Modal from './features/modals.js';
+import Modal from './features/todo.js';
 
 
 // Animation Type Text
@@ -13,7 +13,7 @@ new TypedText(
 
 // Modals
 
-// Modal create task
+// Modal which create a new task
 new Modal(
 	document.querySelector('[data-modal-create]'),
 	document.querySelector('[data-modal-create-btn]'),
