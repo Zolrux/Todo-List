@@ -1,7 +1,7 @@
 'use strict';
 
 import TypedText from './features/typed.js';
-import Modal from './features/todo.js';
+import {Modal, TodoTask} from './features/todo.js';
 
 
 // Animation Type Text
@@ -16,6 +16,17 @@ new TypedText(
 // Modal which create a new task
 new Modal(
 	document.querySelector('[data-modal-create]'),
-	document.querySelector('[data-modal-create-btn]'),
-	document.querySelector('[data-modal-create-close-btn]'),
+	document.querySelector('[data-modal-create-btn]')
 );
+
+
+// Todo
+
+// Check if Todo task element contains 1 or more tasks
+if (document.querySelector('.todo-center__content').children.length) {
+	new TodoTask(
+		document.querySelector('.todo-center__content'),
+		'',
+		false
+	);
+}

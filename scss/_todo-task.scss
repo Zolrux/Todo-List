@@ -4,10 +4,12 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   background-color: $light_blue;
   border-radius: 20px;
   padding: 35px 30px 20px 20px;
+  transition: all 1s ease, background-color 1s ease 0s;
   animation: task-show 1s ease-in-out 1 forwards;
   overflow: hidden;
   &::before {
@@ -19,16 +21,56 @@
     width: 5px;
     height: 100%;
     background-color: $lighten_blue;
+    animation: decor-task 2s linear forwards;
+  }
+  &._delete {
+    animation: task-delete 1s ease forwards;
+  }
+  &._complete {
+    background-color: $complete_task;
+    &::before {
+      background-color: #2bf02b;
+      animation: decor-task 2s linear forwards;
+    }
   }
   &__text {
+    max-width: 380px;
     color: $white;
     font-size: 30px;
-    padding: 0px 20px 0px 0px;
-    flex: 1 1 85%;
+    padding-right: 30px;
+    &:first-letter {
+      text-transform: uppercase;
+    }
+    .todo-task._complete & {
+      position: relative;
+		padding: 0;
+      color: lighten($complete_task, $amount: 20);
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        transform: translate(0, -50%);
+        border-radius: 10px;
+        animation: delete-task 1s ease-in-out forwards;
+        background-color: darken($complete_task, $amount: 20);
+        z-index: 10;
+      }
+    }
   }
   &__btns {
     position: relative;
-	 align-self: flex-start;
+    align-self: flex-start;
+    padding: 0px 0px 0px 20px;
+    transition: all 0.8s ease 0s;
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    .todo-task._complete & {
+      transform: translate3d(300%, 0, 0);
+      opacity: 0;
+    }
   }
   &__btn-config {
     position: relative;
@@ -49,14 +91,14 @@
     &:hover {
       box-shadow: inset 1px 1px 10px rgba($background_color, 0.5);
     }
-	 .todo-task._active & {
-		transform: rotate(90deg);
-	 }
+    .todo-task._active & {
+      transform: rotate(90deg);
+    }
   }
   &__btn-complete {
     position: absolute;
     top: 5px;
-    left: 5px;
+    left: 20px;
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -75,7 +117,7 @@
       opacity: 1;
       visibility: visible;
       top: -25px;
-      left: -35px;
+      left: -15px;
       z-index: 2;
     }
     img {
@@ -84,7 +126,7 @@
   }
   &__btn-delete {
     @extend .todo-task__btn-complete;
-    transition: all 0.8s ease-in-out 0.5s, background-color 0.3s linear 0s;
+    transition: all 0.8s ease-in-out 0.25s, background-color 0.3s linear 0s;
     &:hover {
       background-color: #ff0000;
     }
@@ -92,21 +134,21 @@
       opacity: 1;
       visibility: visible;
       top: 15px;
-      left: -50px;
+      left: -35px;
       z-index: 2;
     }
   }
   &__btn-edit {
     @extend .todo-task__btn-complete;
-    transition: all 0.8s ease-in-out 1s, background-color 0.3s linear 0s;
+    transition: all 0.8s ease-in-out .5s, background-color 0.3s linear 0s;
     &:hover {
       background-color: #2dd1e3;
     }
     .todo-task._active & {
       opacity: 1;
       visibility: visible;
-      top: 45px;
-      left: -23px;
+      top: 50px;
+      left: -5px;
       z-index: 2;
     }
   }

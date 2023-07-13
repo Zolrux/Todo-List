@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.min.css">
 	<title>To do List App</title>
 </head>
 
@@ -31,9 +31,9 @@
 											<p class="modal__text">Write the task description</p>
 											<div class="modal__interactive">
 												<textarea class="modal__textarea"></textarea>
-												<button data-modal-add-btn type="button" class="modal__btn">Add</button>
+												<button data-modal-btn type="button" class="modal__btn">Add</button>
 											</div>
-											<button data-modal-create-close-btn type="button" class="modal__close">
+											<button data-modal-close-btn type="button" class="modal__close">
 												<img src="/img/icons/close.svg" alt="close icon">
 											</button>
 										</div>
@@ -43,24 +43,38 @@
 						</div>
 						<div class="todo__center todo-center">
 							<div class="todo-center__content">
-								<!-- <div class="todo-center__task todo-task _active">
+								<div class="todo-center__task todo-task">
 									<span class="todo-task__text">Complete HTML</span>
 									<div class="todo-task__btns">
-										<button type="button" class="todo-task__btn-config">
+										<button type="button" data-todo-btn-config class="todo-task__btn-config">
 											<img src="img/icons/three-dots.svg" alt="three dots icon">
 										</button>
-										<button type="button" class="todo-task__btn-complete">
+										<button type="button" data-todo-complete-btn  class="todo-task__btn-complete">
 											<img src="img/icons/complete.svg" alt="check icon">
 										</button>
-										<button type="button" class="todo-task__btn-delete">
+										<button type="button" data-todo-delete-btn class="todo-task__btn-delete">
 											<img src="img/icons/delete.svg" alt="delete icon">
 										</button>
-										<button type="button" class="todo-task__btn-edit">
+										<button type="button" data-todo-edit-btn class="todo-task__btn-edit">
 											<img src="img/icons/edit.svg" alt="edit icon">
 										</button>
 									</div>
 									<time class="todo-task__date">Jul 11, Tuesday</time>
-								</div> -->
+								</div>
+							</div>
+							<div data-modal-edit class="modal">
+								<div data-modal-overlay class="modal__overlay">
+									<div class="modal__window">
+										<p class="modal__text">Rename the task</p>
+										<div class="modal__interactive">
+											<textarea class="modal__textarea"></textarea>
+											<button data-modal-btn type="button" class="modal__btn">Rename</button>
+										</div>
+										<button data-modal-close-btn type="button" class="modal__close">
+											<img src="/img/icons/close.svg" alt="close icon">
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="todo__bottom todo-bottom">
