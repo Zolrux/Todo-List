@@ -2,6 +2,7 @@
 
 import TypedText from './features/typed.js';
 import {Modal, TodoTask} from './features/todo.js';
+import TaskFilter from './features/filter.js';
 
 
 // Animation Type Text
@@ -30,3 +31,10 @@ if (document.querySelector('.todo-center__content').children.length) {
 		false
 	);
 }
+
+// Filter todo tasks
+new TaskFilter(
+	document.querySelector('[data-filter-all]'),
+	document.querySelector('[data-filter-active]'),
+	document.querySelector('[data-filter-completed]'),
+)

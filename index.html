@@ -24,7 +24,7 @@
 								<button data-modal-create-btn type="button" class="todo-top__btn">
 									<img src="img/icons/plus.svg" alt="plus icon">
 								</button>
-								<span class="todo-top__text">Create a new todo</span>
+								<span class="todo-top__text">Create a new task</span>
 								<div data-modal-create class="modal">
 									<div data-modal-overlay class="modal__overlay">
 										<div class="modal__window">
@@ -34,7 +34,7 @@
 												<button data-modal-btn type="button" class="modal__btn">Add</button>
 											</div>
 											<button data-modal-close-btn type="button" class="modal__close">
-												<img src="/img/icons/close.svg" alt="close icon">
+												<img src="img/icons/close.svg" alt="close icon">
 											</button>
 										</div>
 									</div>
@@ -42,26 +42,7 @@
 							</div>
 						</div>
 						<div class="todo__center todo-center">
-							<div class="todo-center__content">
-								<div class="todo-center__task todo-task">
-									<span class="todo-task__text">Complete HTML</span>
-									<div class="todo-task__btns">
-										<button type="button" data-todo-btn-config class="todo-task__btn-config">
-											<img src="img/icons/three-dots.svg" alt="three dots icon">
-										</button>
-										<button type="button" data-todo-complete-btn  class="todo-task__btn-complete">
-											<img src="img/icons/complete.svg" alt="check icon">
-										</button>
-										<button type="button" data-todo-delete-btn class="todo-task__btn-delete">
-											<img src="img/icons/delete.svg" alt="delete icon">
-										</button>
-										<button type="button" data-todo-edit-btn class="todo-task__btn-edit">
-											<img src="img/icons/edit.svg" alt="edit icon">
-										</button>
-									</div>
-									<time class="todo-task__date">Jul 11, Tuesday</time>
-								</div>
-							</div>
+							<div class="todo-center__content"></div>
 							<div data-modal-edit class="modal">
 								<div data-modal-overlay class="modal__overlay">
 									<div class="modal__window">
@@ -71,7 +52,7 @@
 											<button data-modal-btn type="button" class="modal__btn">Rename</button>
 										</div>
 										<button data-modal-close-btn type="button" class="modal__close">
-											<img src="/img/icons/close.svg" alt="close icon">
+											<img src="img/icons/close.svg" alt="close icon">
 										</button>
 									</div>
 								</div>
@@ -79,9 +60,9 @@
 						</div>
 						<div class="todo__bottom todo-bottom">
 							<div class="todo-bottom__content">
-								<button type="button" class="todo-bottom__btn _active">All</button>
-								<button type="button" class="todo-bottom__btn">Active</button>
-								<button type="button" class="todo-bottom__btn">Completed</button>
+								<button type="button" data-filter-all class="todo-bottom__btn _active">All</button>
+								<button type="button" data-filter-active class="todo-bottom__btn">Active</button>
+								<button type="button" data-filter-completed class="todo-bottom__btn">Completed</button>
 							</div>
 						</div>
 					</div>

@@ -104,7 +104,7 @@ export class TodoTask {
   #render(text) {
     const getFormatDate = this.#convertData();
     const template = `
-		<div class="todo-center__task todo-task">
+		<div data-todo-task data-todo-task-active class="todo-center__task todo-task">
 			<span class="todo-task__text">${text}</span>
 			<div class="todo-task__btns">
 				<button type="button" data-todo-btn-config class="todo-task__btn-config">
@@ -140,8 +140,11 @@ export class TodoTask {
         // Complete todo btn
         else if (e.target.closest('[data-todo-complete-btn]')) {
           const todoTaskParentEl = e.target.closest('.todo-task');
+			 const taskEl = e.target.closest('.todo-task');
           if (todoTaskParentEl) {
             todoTaskParentEl.classList.add('_complete');
+				taskEl.removeAttribute('data-todo-task-active');
+				taskEl.setAttribute('data-todo-task-complete', '');
           }
         }
         // Delete todo btn
