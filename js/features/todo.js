@@ -105,7 +105,9 @@ export class TodoTask {
     const getFormatDate = this.#convertData();
     const template = `
 		<div data-todo-task data-todo-task-active class="todo-center__task todo-task">
-			<span class="todo-task__text">${text}</span>
+			<div class="todo-task___wrapper-text">
+				<span class="todo-task__text">${text}</span>
+			</div>
 			<div class="todo-task__btns">
 				<button type="button" data-todo-btn-config class="todo-task__btn-config">
 					<img src="img/icons/three-dots.svg" alt="three dots icon">
@@ -138,26 +140,28 @@ export class TodoTask {
         }
         // Complete todo btn
         else if (e.target.closest('[data-todo-complete-btn]')) {
+			console.log("COMPLETE")
 			 const todoTaskEl = e.target.closest('.todo-task');
 			 const configBtns = e.target.closest('.todo-task__btns');
-			 const todoTaskText = todoTaskEl.querySelector('.todo-task__text');
+			 const todoTaskText = todoTaskEl.querySelector('.todo-task___wrapper-text');
 
           if (todoTaskEl) {
 				 
-				//  configBtns.remove();
             todoTaskEl.classList.add('_complete');
             todoTaskEl.classList.remove('_active');
 				todoTaskEl.removeAttribute('data-todo-task-active');
 				todoTaskEl.setAttribute('data-todo-task-complete', '');
 
 				configBtns.addEventListener('transitionend', () => {
-					configBtns.remove();
 					todoTaskText.insertAdjacentHTML('afterend', `
 					<button type="button" data-todo-delete-btn class="todo-task__btn-delete todo-task__btn-delete_big">
 						<img src="img/icons/delete.svg" alt="delete icon">
 					</button>
+					<button type="button" data-todo-back-btn class="todo-task__btn-back">
+						<img src="img/icons/back.svg" alt="back icon">
+					</button>
 					`);
-				});
+				}, {once: true});
           }
         }
         // Delete todo btn
@@ -184,6 +188,21 @@ export class TodoTask {
 
           modalEdit.modalOpen(true);
         }
+		  // Back todo btn
+			else if (e.target.closest('[data-todo-back-btn]')) {
+				const todoTaskEl = e.target.closest('.todo-task');
+				
+				if (todoTaskEl) {
+				  const backBtn = e.target.closest('[data-todo-back-btn]');
+				  const deleteBigBtn = document.querySelector('.todo-task__btn-delete_big');
+
+				  console.log(todoTaskEl)
+				  todoTaskEl.classList.remove('_complete');
+				  todoTaskEl.removeAttribute('data-todo-task-complete');
+				  backBtn.remove();
+				  deleteBigBtn.remove();
+				}
+			}
       });
 
       TodoTask.isMethodCall = true;

@@ -3,6 +3,7 @@
 .todo-task {
   position: relative;
   display: flex;
+  gap: 20px;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -33,8 +34,13 @@
       animation: decor-task 2s linear forwards;
     }
   }
+  &___wrapper-text {
+	max-width: 305px;
+	.todo-task._complete & {
+		padding-right: 10px;
+	}
+  }
   &__text {
-    max-width: 380px;
     color: $white;
     font-size: 30px;
     padding-right: 40px;
@@ -68,6 +74,9 @@
     transform: translate3d(0, 0, 0);
     opacity: 1;
     .todo-task._complete & {
+		position: absolute;
+		right: 0;
+		transition: all 0.8s ease 0s;
       transform: translate3d(300%, 0, 0);
       opacity: 0;
     }
@@ -139,10 +148,12 @@
     }
 	 .todo-task._complete &_big {
 		position: static;
+		align-self: flex-start;
 		width: 50px;
 		height: 50px;
-		animation: delete-btn-show 1s ease forwards;
+		animation: complete-btns-show 1s ease forwards;
 		visibility: visible;
+		margin-left: auto;
 	 }
   }
   &__btn-edit {
@@ -159,9 +170,21 @@
       z-index: 2;
     }
   }
+  &__btn-back {
+	@extend .todo-task__btn-complete;
+	position: static;
+	align-self: flex-start;
+	width: 50px;
+	height: 50px;
+	animation: complete-btns-show 1s ease forwards;
+	visibility: visible;
+	transition: all 0.8s ease-in-out .5s, background-color 0.3s linear 0s;
+	&:hover {
+      background-color: #dc2696;
+   }
+  }
   &__date {
     flex: 1 1 100%;
-    margin: 25px 0px 0px 0px;
     color: $grey;
   }
 }
