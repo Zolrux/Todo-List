@@ -18,17 +18,22 @@ export default class TaskFilter {
     this.filterBtnElems.forEach((filterElem) => {
       filterElem.addEventListener('click', (e) => {
         const allTodoTasks = document.querySelectorAll('[data-todo-task]');
-
         // Filter All todo tasks
         if (e.target.closest('[data-filter-all]')) {
-			const getCreateTaskEl = document.querySelector('.todo-top__create');
-			getCreateTaskEl.style.display = 'flex';
+          const getCreateTaskEl = document.querySelector('.todo-top__create');
+          getCreateTaskEl.style.display = 'flex';
 
           allTodoTasks.forEach((todoTask) => {
             const getCompleteBtnEl = todoTask.querySelector('[data-todo-complete-btn]');
-				if (getCompleteBtnEl) {
-					getCompleteBtnEl.style.display = 'block';
-				}
+				const todoTaskBackBtn = todoTask.querySelector('[data-todo-back-btn]');
+
+            if (getCompleteBtnEl) {
+              getCompleteBtnEl.style.display = 'block';
+            }
+
+				if (todoTaskBackBtn) {
+					todoTaskBackBtn.style.display = 'block';
+				 }
 
             todoTask.style = '';
             todoTask.classList.remove('todo-task');
@@ -41,8 +46,8 @@ export default class TaskFilter {
         }
         // Filter ACTIVE todo tasks
         else if (e.target.closest('[data-filter-active]')) {
-			const getCreateTaskEl = document.querySelector('.todo-top__create');
-			getCreateTaskEl.style.display = 'flex';
+          const getCreateTaskEl = document.querySelector('.todo-top__create');
+          getCreateTaskEl.style.display = 'flex';
 
           allTodoTasks.forEach((todoTask) => {
             if (!todoTask.hasAttribute('data-todo-task-active')) {
@@ -72,6 +77,10 @@ export default class TaskFilter {
               todoTask.style.display = 'none';
               todoTask.classList.remove('todo-task');
             } else {
+              const todoTaskBackBtn = todoTask.querySelector('[data-todo-back-btn]');
+              if (todoTaskBackBtn) {
+                todoTaskBackBtn.style.display = 'none';
+              }
               todoTask.style.display = 'flex';
               todoTask.classList.remove('todo-task');
               setTimeout(() => {

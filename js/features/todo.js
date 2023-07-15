@@ -103,29 +103,37 @@ export class TodoTask {
 
   #render(text) {
     const getFormatDate = this.#convertData();
-    const template = `
-		<div data-todo-task data-todo-task-active class="todo-center__task todo-task">
-			<div class="todo-task___wrapper-text">
-				<span class="todo-task__text">${text}</span>
-			</div>
-			<div class="todo-task__btns">
-				<button type="button" data-todo-btn-config class="todo-task__btn-config">
-					<img src="img/icons/three-dots.svg" alt="three dots icon">
-				</button>
-				<button type="button" data-todo-complete-btn class="todo-task__btn-complete">
-					<img src="img/icons/complete.svg" alt="check icon">
-				</button>
-				<button type="button" data-todo-delete-btn class="todo-task__btn-delete">
-					<img src="img/icons/delete.svg" alt="delete icon">
-				</button>
-				<button type="button" data-todo-edit-btn class="todo-task__btn-edit">
-					<img src="img/icons/edit.svg" alt="edit icon">
-				</button>
-			</div>
-			<time class="todo-task__date">${getFormatDate}</time>
+	 const todoTaskElDiv = document.createElement('div');
+	 todoTaskElDiv.classList.add("todo-center__task", 'todo-task');
+	 todoTaskElDiv.setAttribute('data-todo-task', '');
+	 todoTaskElDiv.setAttribute('data-todo-task-active', '');
+    todoTaskElDiv.innerHTML = `
+		<div class="todo-task___wrapper-text">
+			<span class="todo-task__text">${text}</span>
 		</div>
+		<div class="todo-task__btns">
+			<button type="button" data-todo-btn-config class="todo-task__btn-config">
+				<img src="img/icons/three-dots.svg" alt="three dots icon">
+			</button>
+			<button type="button" data-todo-complete-btn class="todo-task__btn-complete">
+				<img src="img/icons/complete.svg" alt="check icon">
+			</button>
+			<button type="button" data-todo-delete-btn class="todo-task__btn-delete">
+				<img src="img/icons/delete.svg" alt="delete icon">
+			</button>
+			<button type="button" data-todo-edit-btn class="todo-task__btn-edit">
+				<img src="img/icons/edit.svg" alt="edit icon">
+			</button>
+		</div>
+		<time class="todo-task__date">${getFormatDate}</time>
 		`;
-		this.todoTaskParentEl.insertAdjacentHTML('beforeend', template);
+		const filterContentEl = document.querySelector('.todo-bottom__content');
+		const activeFilterEl = Array.from(filterContentEl.children).find(el => el.hasAttribute('data-filter-active'));
+		if (activeFilterEl.classList.contains('_active')) {
+		 const todoTaskCompleteBtn = todoTaskElDiv.querySelector('[data-todo-complete-btn]');
+		 todoTaskCompleteBtn.style.display = 'none';
+		}
+		this.todoTaskParentEl.append(todoTaskElDiv);
   }
 
   #addBtnsConfigHandler() {
@@ -140,7 +148,6 @@ export class TodoTask {
         }
         // Complete todo btn
         else if (e.target.closest('[data-todo-complete-btn]')) {
-			console.log("COMPLETE")
 			 const todoTaskEl = e.target.closest('.todo-task');
 			 const configBtns = e.target.closest('.todo-task__btns');
 			 const todoTaskText = todoTaskEl.querySelector('.todo-task___wrapper-text');
@@ -196,8 +203,8 @@ export class TodoTask {
 				  const backBtn = e.target.closest('[data-todo-back-btn]');
 				  const deleteBigBtn = document.querySelector('.todo-task__btn-delete_big');
 
-				  console.log(todoTaskEl)
 				  todoTaskEl.classList.remove('_complete');
+				  todoTaskEl.setAttribute('data-todo-task-active', '');
 				  todoTaskEl.removeAttribute('data-todo-task-complete');
 				  backBtn.remove();
 				  deleteBigBtn.remove();

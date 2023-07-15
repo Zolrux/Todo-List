@@ -36,6 +36,9 @@
   }
   &___wrapper-text {
 	max-width: 305px;
+	&:first-letter {
+      text-transform: uppercase;
+    }
 	.todo-task._complete & {
 		padding-right: 10px;
 	}
@@ -44,9 +47,6 @@
     color: $white;
     font-size: 30px;
     padding-right: 40px;
-    &:first-letter {
-      text-transform: uppercase;
-    }
     .todo-task._complete & {
       position: relative;
 		padding: 0;
