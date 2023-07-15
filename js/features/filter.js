@@ -25,8 +25,10 @@ export default class TaskFilter {
 			getCreateTaskEl.style.display = 'flex';
 
           allTodoTasks.forEach((todoTask) => {
-            const getCompleteBtn = todoTask.querySelector('[data-todo-complete-btn]');
-            getCompleteBtn.style.display = 'block';
+            const getCompleteBtnEl = todoTask.querySelector('[data-todo-complete-btn]');
+				if (getCompleteBtnEl) {
+					getCompleteBtnEl.style.display = 'block';
+				}
 
             todoTask.style = '';
             todoTask.classList.remove('todo-task');

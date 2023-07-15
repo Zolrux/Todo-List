@@ -37,7 +37,7 @@
     max-width: 380px;
     color: $white;
     font-size: 30px;
-    padding-right: 30px;
+    padding-right: 40px;
     &:first-letter {
       text-transform: uppercase;
     }
@@ -137,6 +137,13 @@
       left: -35px;
       z-index: 2;
     }
+	 .todo-task._complete &_big {
+		position: static;
+		width: 50px;
+		height: 50px;
+		animation: delete-btn-show 1s ease forwards;
+		visibility: visible;
+	 }
   }
   &__btn-edit {
     @extend .todo-task__btn-complete;

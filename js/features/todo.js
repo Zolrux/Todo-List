@@ -121,10 +121,9 @@ export class TodoTask {
 				</button>
 			</div>
 			<time class="todo-task__date">${getFormatDate}</time>
-
 		</div>
 		`;
-    this.todoTaskParentEl.insertAdjacentHTML('beforeend', template);
+		this.todoTaskParentEl.insertAdjacentHTML('beforeend', template);
   }
 
   #addBtnsConfigHandler() {
@@ -139,21 +138,36 @@ export class TodoTask {
         }
         // Complete todo btn
         else if (e.target.closest('[data-todo-complete-btn]')) {
-          const todoTaskParentEl = e.target.closest('.todo-task');
-			 const taskEl = e.target.closest('.todo-task');
-          if (todoTaskParentEl) {
-            todoTaskParentEl.classList.add('_complete');
-				taskEl.removeAttribute('data-todo-task-active');
-				taskEl.setAttribute('data-todo-task-complete', '');
+			 const todoTaskEl = e.target.closest('.todo-task');
+			 const configBtns = e.target.closest('.todo-task__btns');
+			 const todoTaskText = todoTaskEl.querySelector('.todo-task__text');
+
+          if (todoTaskEl) {
+				 
+				//  configBtns.remove();
+            todoTaskEl.classList.add('_complete');
+            todoTaskEl.classList.remove('_active');
+				todoTaskEl.removeAttribute('data-todo-task-active');
+				todoTaskEl.setAttribute('data-todo-task-complete', '');
+
+				configBtns.addEventListener('transitionend', () => {
+					configBtns.remove();
+					todoTaskText.insertAdjacentHTML('afterend', `
+					<button type="button" data-todo-delete-btn class="todo-task__btn-delete todo-task__btn-delete_big">
+						<img src="img/icons/delete.svg" alt="delete icon">
+					</button>
+					`);
+				});
           }
         }
         // Delete todo btn
         else if (e.target.closest('[data-todo-delete-btn]')) {
-          const todoTaskParentEl = e.target.closest('.todo-task');
-          if (todoTaskParentEl) {
-            todoTaskParentEl.classList.add('_delete');
-            todoTaskParentEl.addEventListener('animationend', () => {
-              todoTaskParentEl.remove();
+          const todoTaskEl = e.target.closest('.todo-task');
+          if (todoTaskEl) {
+            todoTaskEl.classList.add('_delete');
+				todoTaskEl.classList.remove('_active');
+            todoTaskEl.addEventListener('animationend', () => {
+					todoTaskEl.remove();
             });
           }
         }
