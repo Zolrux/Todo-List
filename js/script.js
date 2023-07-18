@@ -3,6 +3,7 @@
 import TypedText from './features/typed.js';
 import {Modal, TodoTask} from './features/todo.js';
 import TaskFilter from './features/filter.js';
+import ProgressBar from './features/todo.js';
 
 
 // Animation Type Text
@@ -38,3 +39,6 @@ new TaskFilter(
 	document.querySelector('[data-filter-active]'),
 	document.querySelector('[data-filter-completed]'),
 )
+
+// Progress bar
+new ProgressBar();

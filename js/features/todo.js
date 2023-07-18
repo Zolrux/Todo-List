@@ -31,6 +31,8 @@ export class Modal {
         this.modalEl.classList.remove('_active');
         document.body.style = '';
         new TodoTask(document.querySelector('.todo-center__content'), textArea.value);
+		  const progressBar = new ProgressBar();
+		  progressBar.setProgress();
         textArea.value = '';
       }
     });
@@ -145,6 +147,8 @@ export class TodoTask {
         if (e.target.closest('[data-todo-btn-config]')) {
           const taskEl = e.target.closest('.todo-task');
           taskEl.classList.toggle('_active');
+			 const progressBar = new ProgressBar();
+			 progressBar.setProgress();
         }
         // Complete todo btn
         else if (e.target.closest('[data-todo-complete-btn]')) {
@@ -168,6 +172,8 @@ export class TodoTask {
 						<img src="img/icons/back.svg" alt="back icon">
 					</button>
 					`);
+					const progressBar = new ProgressBar();
+					progressBar.setProgress();
 				}, {once: true});
           }
         }
@@ -179,6 +185,8 @@ export class TodoTask {
 				todoTaskEl.classList.remove('_active');
             todoTaskEl.addEventListener('animationend', () => {
 					todoTaskEl.remove();
+					const progressBar = new ProgressBar();
+					progressBar.setProgress();
             });
           }
         }
@@ -201,13 +209,15 @@ export class TodoTask {
 				
 				if (todoTaskEl) {
 				  const backBtn = e.target.closest('[data-todo-back-btn]');
-				  const deleteBigBtn = document.querySelector('.todo-task__btn-delete_big');
+				  const deleteBigBtn = todoTaskEl.querySelector('.todo-task__btn-delete_big');
 
 				  todoTaskEl.classList.remove('_complete');
 				  todoTaskEl.setAttribute('data-todo-task-active', '');
 				  todoTaskEl.removeAttribute('data-todo-task-complete');
 				  backBtn.remove();
 				  deleteBigBtn.remove();
+				  const progressBar = new ProgressBar();
+				  progressBar.setProgress();
 				}
 			}
       });
@@ -215,4 +225,24 @@ export class TodoTask {
       TodoTask.isMethodCall = true;
     }
   }
+}
+
+export default class ProgressBar {
+	constructor(indicatorEl, todoTaskElements) {
+		this.indicatorEl = indicatorEl || document.querySelector('.progress-bar__progress');
+		this.todoTaskElements = todoTaskElements || document.querySelectorAll('[data-todo-task]');
+		this.setProgress();
+	}
+
+	setProgress() {
+		const getActiveTasks = Array.from(this.todoTaskElements)
+		.filter(el => el.hasAttribute('data-todo-task-complete'));
+		const todoTasksLength = this.todoTaskElements.length;
+		if (!getActiveTasks.length || !todoTasksLength) {
+			this.indicatorEl.style.width = `0%`;
+			return;
+		}
+		const widthPercent = (getActiveTasks.length * 100) / todoTasksLength;
+		this.indicatorEl.style.width = `${widthPercent}%`;
+	}
 }
