@@ -31,10 +31,11 @@ img {
 }
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   font-family: 'ABeeZee', sans-serif;
   font-weight: 400;
-  background-color: $background_color;
+  background-color: $body_color;
+  height: 100%;
 }
 button {
   cursor: pointer;

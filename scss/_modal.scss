@@ -32,7 +32,7 @@
     position: relative;
     max-width: 500px;
     padding: 50px;
-    background-color: $light_blue;
+    background-color: $beige;
     border-radius: 20px;
     transition: all 1s ease 0s;
     visibility: hidden;
@@ -48,7 +48,7 @@
     display: block;
     position: relative;
     font-size: 32px;
-    color: $white;
+    color: $black;
     padding: 0px 0px 20px 0px;
     text-align: center;
     &::before {
@@ -76,6 +76,7 @@
     padding: 10px 25px;
     font-size: 21px;
 	 font-family: inherit;
+	 box-shadow: 0px 0px 30px rgba($black, 0.5);
     resize: none;
   }
   &__btn {
@@ -89,7 +90,7 @@
     border-radius: 20px;
     padding: 15px 30px;
     margin: 15px auto 0px;
-    box-shadow: 0px 5px 0px $background_color;
+    box-shadow: 0px 5px 0px $black;
     &:active {
       transform: translate(0px, 5px);
       box-shadow: none;
@@ -104,11 +105,12 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: $light_blue;
+    background-color: $beige;
     border-radius: 50%;
     transform: translate(50%, -50%);
     img {
       width: 20px;
+		filter: invert(1);
     }
   }
 }

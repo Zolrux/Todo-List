@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10 12V17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M14 12V17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4 7H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="trash-2">
+<path id="Vector" d="M4 8H6.66667H28" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M25.3333 7.99999V26.6667C25.3333 27.3739 25.0523 28.0522 24.5522 28.5523C24.0521 29.0524 23.3739 29.3333 22.6666 29.3333H9.33329C8.62605 29.3333 7.94777 29.0524 7.44767 28.5523C6.94758 28.0522 6.66663 27.3739 6.66663 26.6667V7.99999M10.6666 7.99999V5.33332C10.6666 4.62608 10.9476 3.9478 11.4477 3.4477C11.9478 2.94761 12.626 2.66666 13.3333 2.66666H18.6666C19.3739 2.66666 20.0521 2.94761 20.5522 3.4477C21.0523 3.9478 21.3333 4.62608 21.3333 5.33332V7.99999" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M13.3334 14.6667V22.6667" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M18.6666 14.6667V22.6667" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>

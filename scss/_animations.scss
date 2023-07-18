@@ -3,7 +3,7 @@
 @keyframes flashing-border {
 	0%, 
 	100% {
-		border-color: $background_color;
+		border-color: $black;
 	}
 	50% {
 		border-color: transparent;

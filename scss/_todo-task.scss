@@ -7,11 +7,12 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: $light_blue;
+  background-color: $beige;
   border-radius: 20px;
   padding: 35px 30px 20px 20px;
   transition: all 1s ease, background-color 1s ease 0s;
   animation: task-show 1s ease-in-out 1 forwards;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   &::before {
     content: '';
@@ -44,7 +45,7 @@
 	}
   }
   &__text {
-    color: $white;
+    color: $black;
     font-size: 30px;
     padding-right: 40px;
     .todo-task._complete & {
@@ -86,7 +87,7 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: $grey;
+    background-color: $white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +99,7 @@
       width: 25px;
     }
     &:hover {
-      box-shadow: inset 1px 1px 10px rgba($background_color, 0.5);
+      box-shadow: inset 1px 1px 10px rgba($black, 0.5);
     }
     .todo-task._active & {
       transform: rotate(90deg);
@@ -114,6 +115,7 @@
     z-index: 0;
     transition: all 0.8s ease-in-out, background-color 0.3s linear 0s;
     transition-delay: 0s;
+	 background-color: $white;
     opacity: 0.5;
     visibility: hidden;
     &:hover {
@@ -185,6 +187,10 @@
   }
   &__date {
     flex: 1 1 100%;
-    color: $grey;
+    color: rgba($black, 0.7);
+	 transition: all 0.5s ease 0s;
+	 .todo-task._complete & {
+		color: rgba($black, 0.4);
+	 }
   }
 }
